@@ -5,7 +5,13 @@ import { ProductModule } from 'src/product/product.module';
 
 @Module({
   imports: [ProductModule],
-  controllers: [CartController],
   providers: [CartService],
+  exports: [CartService],
 })
 export class CartModule {}
+
+@Module({
+  imports: [CartModule],
+  controllers: [CartController],
+})
+export class CartHttpModule {}
